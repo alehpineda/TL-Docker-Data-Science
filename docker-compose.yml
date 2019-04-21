@@ -18,7 +18,7 @@ services:
     container_name: "tl_postgres"
     image: postgres
     volumes:
-      - pg_volume:/var/lib/postgresql/
+      - pg_volume: /var/lib/postgresql/
     ports:
       - 5432:5432
 
@@ -26,7 +26,7 @@ services:
     container_name: "tl_minio"
     image: minio
     volumes:
-      - minio_volume:/data
+      - minio_volume: /data
     ports:
       - 9000:9000
     command:
@@ -36,7 +36,7 @@ services:
     container_name: "tl_apistar"
     build: services/apistar
     volumes:
-      - ./services/apistar/api:/usr/src/app
+      - ./services/apistar/api: /usr/src/app
     ports:
       - 8000:8000
     command: gunicorn app:app -b 0.0.0.0:8000
