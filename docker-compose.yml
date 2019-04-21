@@ -39,8 +39,18 @@ services:
       - ./services/apistar/api:/usr/src/app
     ports:
       - 8000:8000
-    command:
-      - gunicorn app:app -b 0.0.0.0:8000
+    command: gunicorn app:app -b 0.0.0.0:8000
+  
+  airflow:
+    container_name: "tl-airflow"
+    image: puckel/docker-airflow
+    depends_on:
+      - postgres
+    environment:
+      - EXECUTOR=Local
+    ports:
+      - 8080:8080
+    command: webserver
 
   volumes:
     pg_volume
