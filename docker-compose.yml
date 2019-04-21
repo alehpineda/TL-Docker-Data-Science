@@ -22,5 +22,16 @@ services:
     ports:
       - 5432:5432
 
+  minio:
+    container_name: "tl_minio"
+    image: minio
+    volumes:
+      - minio_volume:/data
+    ports:
+      - 9000:9000
+    command:
+      - server /data
+
   volumes:
     pg_volume
+    minio_volume
