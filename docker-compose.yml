@@ -24,7 +24,7 @@ services:
 
   minio:
     container_name: "tl_minio"
-    image: minio
+    image: minio/minio
     volumes:
       - minio_volume:/data
     ports:
