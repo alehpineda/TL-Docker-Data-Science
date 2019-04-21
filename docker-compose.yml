@@ -18,7 +18,7 @@ services:
     container_name: "tl_postgres"
     image: postgres
     volumes:
-      - pg_volume: /var/lib/postgresql/
+      - pg_volume:/var/lib/postgresql/
     ports:
       - 5432:5432
 
@@ -26,7 +26,7 @@ services:
     container_name: "tl_minio"
     image: minio
     volumes:
-      - minio_volume: /data
+      - minio_volume:/data
     ports:
       - 9000:9000
     command:
@@ -53,5 +53,5 @@ services:
     command: webserver
 
 volumes:
-  pg_volume
-  minio_volume
+  pg_volume:
+  minio_volume:
