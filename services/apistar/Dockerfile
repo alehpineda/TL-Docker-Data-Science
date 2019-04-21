@@ -1,7 +1,7 @@
-FROM python:3
+FROM python:slim
 
 WORKDIR /usr/src/app
 
-RUN pip install --no-cache-dir apistar==0.5.41 gunicorn
+RUN pip install --no-cache-dir apistar gunicorn
 
 EXPOSE 8000
