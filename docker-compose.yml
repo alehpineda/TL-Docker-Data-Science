@@ -25,7 +25,7 @@ services:
   minio:
     container_name: "tl_minio"
     image: minio/minio
-    enviroment:
+    environment:
       MINIO_ACCESS_KEY=estoesunaclavedeacceso123.
       MINIO_SECRET_KEY=estoesunaclavesecreta123.
     volumes:
