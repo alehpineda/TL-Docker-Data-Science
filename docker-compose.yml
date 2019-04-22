@@ -35,7 +35,7 @@ services:
     container_name: "tl_apistar"
     build: services/apistar
     volumes:
-      - apistar_volume:/usr/src/app
+      - ./services/apistar/api:/usr/src/app
     ports:
       - 8000:8000
     command: gunicorn app:app -b 0.0.0.0:8000
