@@ -25,8 +25,12 @@ services:
   minio:
     container_name: "tl_minio"
     image: minio/minio
+    enviroment:
+      - MINIO_ACCESS_KEY=estoesunaclavedeacceso123.
+      - MINIO_SECRET_KEY=estoesunaclavesecreta123.
     volumes:
       - minio_volume:/data
+      - minio_config:/root/.minio
     ports:
       - 9000:9000
     command: server /data
@@ -52,4 +56,4 @@ services:
 volumes:
   pg_volume:
   minio_volume:
-  apistar_volume:
+  minio_config:
